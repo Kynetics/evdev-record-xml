@@ -27,6 +27,12 @@ To destroy the device, do
 
    sudo ./tools/evemu-destroy /dev/input/eventY
 
+To record a stream of events in xml format, do
+    sudo ./tools/evdev-record-xml /dev/input/eventX evdev-events.xml
+Note: the file format used by evdev-record-xml to record events is not
+compatible with evemu-play. To replay a stream of events, record using
+evemu-record instead.
+
 To install evemu, do
 
    sudo make install
