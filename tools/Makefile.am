@@ -6,7 +6,8 @@ bin_PROGRAMS = \
 	evemu-device \
 	evemu-record \
 	evemu-play \
-	evemu-event
+	evemu-event \
+	evdev-record-xml
 
 AM_CPPFLAGS =-I$(top_srcdir)/src/
 
@@ -20,6 +21,9 @@ evemu_device_SOURCES = $(evemu_play_SOURCES)
 
 evemu_event_CFLAGS = $(LIBEVDEV_CFLAGS)
 evemu_event_LDADD = $(LIBEVDEV_LIBS)
+
+evdev_record_xml_SOURCES = evdev-record-xml.c find_event_devices.c find_event_devices.h
+evdev_record_xml_LDADD = $(top_builddir)/src/libevdevxml.la
 
 # man page generation
 if HAVE_DOCTOOLS
